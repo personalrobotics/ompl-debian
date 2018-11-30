@@ -1,0 +1,6 @@
+# Watch control file for uscan
+# Compulsory line, this is a version 3 file
+version=3
+#opts=dversionmangle=s/\.dfsg// \
+opts=dversionmangle=s/\+ds1\d?$//,repacksuffix=+ds1 \
+ https://bitbucket.org/ompl/ompl/downloads/ompl-(.*)\-Source.tar.gz

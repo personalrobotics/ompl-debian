@@ -1,0 +1,22 @@
+From: Leopold Palomo-Avellaneda <leo@alaxarxa.net>
+Date: Tue, 30 Aug 2016 12:18:55 +0200
+Subject: Added FLANN_LIBRARIES dependency
+
+---
+ CMakeModules/OMPLUtils.cmake | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeModules/OMPLUtils.cmake b/CMakeModules/OMPLUtils.cmake
+index 6296cd7..beb7988 100644
+--- a/CMakeModules/OMPLUtils.cmake
++++ b/CMakeModules/OMPLUtils.cmake
+@@ -6,7 +6,8 @@ macro(add_ompl_test test_name)
+     ${Boost_SERIALIZATION_LIBRARY}
+     ${Boost_FILESYSTEM_LIBRARY}
+     ${Boost_SYSTEM_LIBRARY}
+-    ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
++    ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
++    ${FLANN_LIBRARIES})
+   add_test(NAME ${test_name} COMMAND $<TARGET_FILE:${test_name}>)
+ endmacro(add_ompl_test)
+ 

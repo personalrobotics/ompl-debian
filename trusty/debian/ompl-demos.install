@@ -1,0 +1,6 @@
+#!/usr/bin/dh-exec
+usr/share/ompl/demos/*
+usr/bin/ompl_benchmark_statistics.py => usr/bin/ompl_benchmark_statistics
+usr/share/man/man1/ompl_benchmark_statistics.1
+usr/share/man/man1/plannerarena.1
+usr/share/ompl/ompl.conf

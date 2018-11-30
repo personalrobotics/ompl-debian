@@ -1,0 +1,21 @@
+From: Leopold Palomo-Avellaneda <leo@alaxarxa.net>
+Date: Tue, 30 Aug 2016 12:17:15 +0200
+Subject: Add functionality to findflann search macro
+
+---
+ CMakeModules/Findflann.cmake | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/CMakeModules/Findflann.cmake b/CMakeModules/Findflann.cmake
+index 3b3f6dc..033e28c 100644
+--- a/CMakeModules/Findflann.cmake
++++ b/CMakeModules/Findflann.cmake
+@@ -1,5 +1,8 @@
+ # Find FLANN, a Fast Library for Approximate Nearest Neighbors
+ 
++find_package(PkgConfig)
++pkg_check_modules(FLANN REQUIRED flann)
++
+ include(FindPackageHandleStandardArgs)
+ 
+ find_path(FLANN_INCLUDE_DIR flann.hpp PATH_SUFFIXES flann)

@@ -1,0 +1,75 @@
+Source: ompl
+Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
+Uploaders: Leopold Palomo-Avellaneda <leo@alaxarxa.net>
+Section: libs
+Priority: optional
+Build-Depends: debhelper (>= 9),
+               cmake,
+               dh-exec,
+               libboost-date-time-dev (>= 1.50.0),
+               libboost-thread-dev (>= 1.50.0),
+               libboost-serialization-dev (>= 1.50.0),
+               libboost-filesystem-dev (>= 1.50.0),
+               libboost-system-dev (>= 1.50.0),
+               libboost-program-options-dev (>= 1.50.0),
+               libboost-test-dev (>= 1.50.0),
+               libode-dev,
+	           pkg-config,
+               libflann-dev (>= 1.8.3),
+               libeigen3-dev
+Standards-Version: 3.9.8
+Vcs-Browser: https://anonscm.debian.org/cgit/debian-science/packages/ompl.git
+Vcs-Git: https://anonscm.debian.org/git/debian-science/packages/ompl.git
+Homepage: http://ompl.kavrakilab.org
+
+Package: libompl-dev
+Multi-Arch: same
+Architecture: any
+Section: libdevel
+Depends: libompl12 (= ${binary:Version}),
+         pkg-config,
+         ${misc:Depends},
+         libboost-dev,
+         libeigen3-dev
+Suggests: libode-dev
+Conflicts: libompl-dev
+Description: Open Motion Planning Library (OMPL) development files
+ The Open Motion Planning Library is a set of sampling-based motion
+ planning algorithms. The content of the library is limited to these
+ algorithms, which means there is no environment specification, no
+ collision detection, and no visualization. The library is designed so
+ it can be easily integrated into systems that provide those
+ additional components. This package contains the development files
+ needed to use the library.
+
+Package: libompl12
+Multi-Arch: same
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: Open Motion Planning Library (OMPL)
+ The Open Motion Planning Library is a set of sampling-based motion
+ planning algorithms. The content of the library is limited to these
+ algorithms, which means there is no environment specification, no
+ collision detection, and no visualization. The library is designed so
+ it can be easily integrated into systems that provide those
+ additional components.  This package contains the library itself.
+
+Package: ompl-demos
+Multi-Arch: foreign
+Architecture: all
+Section: science
+Depends: ${misc:Depends},
+         python,
+         python-matplotlib,
+         libompl-dev
+Conflicts: ompl-demos
+Description: Open Motion Planning Library (OMPL) demos
+ The Open Motion Planning Library is a set of sampling-based motion
+ planning algorithms. The content of the library is limited to these
+ algorithms, which means there is no environment specification, no
+ collision detection or visualization. The library is designed so it
+ can be easily integrated into systems that provide the additional
+ needed components.  This package contains a set of demos of the
+ library.
+
