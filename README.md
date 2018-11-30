@@ -2,7 +2,7 @@
 
 This repository includes debian files for the latest OMPL packages customized for Personal Robotics Lab.
 
-AIKIDO aims to support an interface with the latest OMPL (>= 1.2.1) to provide access to state-of-the-art planning algorithms. We need the custom OMPL packages on Ubuntu 14.04 and Ubuntu 16.04 for the following reasons.
+AIKIDO aims to support interfacing with the latest OMPL (>= 1.2.1) to provide access to state-of-the-art planning algorithms. We need the custom OMPL packages on Ubuntu 14.04 and Ubuntu 16.04 for the following reasons.
 
 **Ubuntu 14.04**
 
