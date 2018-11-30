@@ -1,12 +1,12 @@
 # Debian files for OMPL packages in [PRL PPA](https://launchpad.net/~personalrobotics/+archive/ubuntu/ppa)
 
-This repository includes debian files for custom OMPL packages for Personal Robotics Lab.
+This repository includes debian files for the latest OMPL packages customized for Personal Robotics Lab.
 
-We need the custom OMPL packages on Ubuntu 14.04 and Ubuntu 16.04 for the following reasons.
+AIKIDO aims to support an interface with the latest OMPL (>= 1.2.1) to provide access to state-of-the-art planning algorithms. We need the custom OMPL packages on Ubuntu 14.04 and Ubuntu 16.04 for the following reasons.
 
 **Ubuntu 14.04**
 
-AIKIDO requires OMPL (>= 1.2.1) by [aikido #446](https://github.com/personalrobotics/aikido/pull/466), but the available OMPL packages on Ubuntu 14.04 (i.e., `libompl-dev`: 0.13.0, `ros-indigo-ompl`: 1.0.0) are too old.
+The available OMPL packages on Ubuntu 14.04 (i.e., `libompl-dev`: 0.13.0, `ros-indigo-ompl`: 1.0.0) are too old.
 
 **Ubuntu 16.04**
 
