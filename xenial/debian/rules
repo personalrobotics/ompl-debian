@@ -1,0 +1,81 @@
+#!/usr/bin/make -f
+
+CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS:=$(shell dpkg-buildflags --get CFLAGS) $(CPPFLAGS)
+CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS) $(CPPFLAGS)  
+LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS) -Wl,--as-needed
+
+DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+DEB_BUILD_OPTIONS += nocheck
+export DEB_BUILD_MAINT_OPTIONS = hardening=+bindnow
+
+ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+	NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+	MAKEFLAGS += -j$(NUMJOBS)
+endif
+
+# These don't need to be exported and if they are we'll get the flags
+# duplicated in the command line.
+#unexport CFLAGS  
+#unexport CXXFLAGS
+#unexport LDFLAGS
+
+CMAKE_FLAGS = \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR="/usr/lib/$(DEB_HOST_MULTIARCH)" \
+        -DCMAKE_VERBOSE_MAKEFILE=ON \
+        -DCMAKE_C_FLAGS_RELEASE="$(CFLAGS)" \
+        -DCMAKE_CXX_FLAGS_RELEASE="$(CXXFLAGS)" \
+        -DCMAKE_SHARED_LINKER_FLAGS_RELEASE="$(LDFLAGS)" \
+        -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+	-DCMAKE_SKIP_INSTALL_RPATH=TRUE \
+	-DOMPL_ODESOLVER=ON \
+        -DOMPL_REGISTRATION=OFF \
+	-DOMPL_BUILD_PYBINDINGS=ON \
+	-DOMPL_BUILD_PYTESTS=OFF
+
+%:
+	dh $@ --builddirectory=build --buildsystem=cmake --parallel
+
+override_dh_clean:
+ifneq ("$(wildcard $(build/bindings_generator.py))","")
+	rm -rf py-bindings/ompl/bindings_generator.py*
+	mv build/bindings_generator.py py-bindings/ompl/
+endif
+	rm -rf build
+	rm -rf CMakeModules/ompl.pc
+	rm -rf py-bindings/ompl/__init__.pyc
+	rm -rf .registered
+	rm -rf src/ompl/config.h
+	rm -rf tests/resources/config.h
+	rm -rf doc/markdown/download.md
+	rm -rf doc/markdown/mainpage.md
+	rm -rf tests/BoostTestTeamCityReporter.h
+
+	find py-bindings/ -name *.pypp.*  | xargs -n1 rm -rf
+	find py-bindings/ -name *.pyc  | xargs -n1 rm -rf
+	find py-bindings/ -name *.so  | xargs -n1 rm -rf 
+	dh_clean
+
+
+override_dh_auto_configure:
+	mkdir -p build 
+	dh_auto_configure --builddirectory=build -- $(CMAKE_FLAGS) $(CMAKE_ARCH_FLAGS) 
+
+override_dh_auto_build:
+# Uncomment this part to prepare the python bindings
+#	cd build && $(MAKE) update_bindings
+	cd build && $(MAKE) 
+
+override_dh_auto_install:
+	dh_auto_install --builddirectory=build
+
+override_dh_install:
+	dh_install --list-missing
+
+override_dh_auto_test:
+	echo "Supressing upstream tests"
+
+
+

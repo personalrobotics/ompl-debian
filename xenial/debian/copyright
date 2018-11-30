@@ -1,0 +1,168 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: ompl
+Upstream-Contact: Mark Moll <mmoll@rice.edu>, Ioan Sucan <isucan@gmail.com>
+Source: http://ompl.kavrakilab.org/
+Files-Excluded: src/external/* doc/js/bootstrap.min.js doc/js/jquery.js doc/js/jquery.powertip.min.js
+Comment: js files are in other debian packages.
+
+Files: *
+Copyright: 2013, Autonomous Systems Laboratory, Stanford University
+           2015, Caleb Voss and Wilson Beebe
+           2010-2015, Rice University
+           2013, Rutgers the State University of New Jersey, New Brunswick
+           2015, Tel Aviv University
+           2014, University of Toronto
+           2011-2012, Willow Garage
+           2008-2012, Willow Garage, Inc
+License: BSD-3-clause
+
+Files: src/ompl/base/Cost.h
+       src/ompl/base/Goal.h
+       src/ompl/base/Path.h
+       src/ompl/base/StateValidityChecker.h
+       src/ompl/base/src/ProjectionEvaluator.cpp
+       src/ompl/control/ControlSpaceTypes.h
+       src/ompl/control/DirectedControlSampler.h
+       src/ompl/datastructures/BinaryHeap.h
+       src/ompl/datastructures/GridB.h
+       src/ompl/datastructures/NearestNeighbors.h
+       src/ompl/datastructures/NearestNeighborsLinear.h
+       src/ompl/datastructures/NearestNeighborsSqrtApprox.h
+       src/ompl/geometric/PathSimplifier.h
+       src/ompl/geometric/planners/prm/src/LazyPRM.cpp
+       src/ompl/geometric/planners/prm/src/PRMstar.cpp
+       src/ompl/geometric/planners/stride/*
+       tests/base/ptc.cpp
+       tests/base/state_storage.cpp
+       tests/control/2dmap/*
+       tests/datastructures/grid.cpp
+       tests/datastructures/gridb.cpp
+       tests/datastructures/heap.cpp
+       tests/geometric/2d/2DcirclesSetup.h
+       tests/geometric/2d/2dcircles_optimize.cpp
+       tests/geometric/2d/2denvs.cpp
+       tests/geometric/2d/2dmap_simple.cpp
+       tests/resources/circles2D.h
+       tests/resources/environment2D.h
+       tests/util/random/*
+Copyright: 2008-2013, Willow Garage, Inc
+License: BSD-3-clause
+
+Files: CMakeModules/FindEigen3.cmake
+Copyright: 2009, Benoit Jacob <jacob.benoit.1@gmail.com>
+           2008-2009, Gael Guennebaud <g.gael@free.fr>
+           2006-2007, Montel Laurent <montel@kde.org>
+License: BSD-2-clause
+
+Files: debian/*
+Copyright: 2013-2017, Leopold Palomo-Avellaneda <leo@alaxarxa.net>
+License: BSD-3-clause
+Comment: the Debian packaging is licensed under the same terms as the original package.
+
+Files: doc/css/bootstrap-theme.min.css
+       doc/css/bootstrap.min.css
+Copyright: 2011-2014, Twitter Inc
+License: Expat
+
+Files: src/boost/*
+Copyright: 2002-2005, David Abrahams
+License: BSL-1.0
+
+Files: tests/BoostTestTeamCityReporter.h.in
+Copyright: 2011, CopyrightJetBrains s.r.o
+License: Apache-2.0
+
+License: Apache-2.0
+ Licensed under the Apache License v2.0. See `/usr/share/common-licenses/Apache-2.0'.
+
+License: BSD-2-clause
+ Redistribution and use in source and binary forms, with or without modification, 
+ are permitted provided that the following conditions are met:
+ .
+ 1. Redistributions of source code must retain the above copyright notice, this list 
+ of conditions and the following disclaimer. 
+ .
+ 2. Redistributions in binary form must reproduce the above copyright notice, 
+ this list of conditions and the following disclaimer in the documentation and/or 
+ other materials provided with the distribution.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
+ THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+ ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS
+ BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE 
+ GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT 
+ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License: BSD-3-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. Neither the name of the University nor the names of its contributors
+    may be used to endorse or promote products derived from this software
+    without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.
+
+License: BSL-1.0
+ Boost Software License - Version 1.0 - August 17th, 2003
+ .
+ Permission is hereby granted, free of charge, to any person or organization
+ obtaining a copy of the software and accompanying documentation covered by
+ this license (the "Software") to use, reproduce, display, distribute,
+ execute, and transmit the Software, and to prepare derivative works of the
+ Software, and to permit third-parties to whom the Software is furnished to
+ do so, all subject to the following:
+ .
+ The copyright notices in the Software and this entire statement, including
+ the above license grant, this restriction and the following disclaimer,
+ must be included in all copies of the Software, in whole or in part, and
+ all derivative works of the Software, unless such copies or derivative
+ works are solely in the form of machine-executable object code generated by
+ a source language processor.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+ SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+ OR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ DEALINGS IN THE SOFTWARE.
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of this software and associated documentation files (the
+ "Software"), to deal in the Software without restriction, including
+ without limitation the rights to use, copy, modify, merge, publish,
+ distribute, sublicense, and/or sell copies of the Software, and to
+ permit persons to whom the Software is furnished to do so, subject to
+ the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included
+ in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
