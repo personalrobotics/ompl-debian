@@ -1,4 +1,4 @@
-# ompl-debian
+# Debian files for OMPL packages in [PRL PPA](https://launchpad.net/~personalrobotics/+archive/ubuntu/ppa)
 
 This repository includes debian files for custom OMPL packages for Personal Robotics Lab.
 
