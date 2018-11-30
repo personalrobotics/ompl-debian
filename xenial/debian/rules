@@ -2,7 +2,7 @@
 
 CPPFLAGS:=$(shell dpkg-buildflags --get CPPFLAGS)
 CFLAGS:=$(shell dpkg-buildflags --get CFLAGS) $(CPPFLAGS)
-CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS) $(CPPFLAGS)  
+CXXFLAGS:=$(shell dpkg-buildflags --get CXXFLAGS) $(CPPFLAGS)
 LDFLAGS:=$(shell dpkg-buildflags --get LDFLAGS) -Wl,--as-needed
 
 DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
@@ -17,7 +17,7 @@ endif
 
 # These don't need to be exported and if they are we'll get the flags
 # duplicated in the command line.
-#unexport CFLAGS  
+#unexport CFLAGS
 #unexport CXXFLAGS
 #unexport LDFLAGS
 
@@ -29,11 +29,12 @@ CMAKE_FLAGS = \
         -DCMAKE_CXX_FLAGS_RELEASE="$(CXXFLAGS)" \
         -DCMAKE_SHARED_LINKER_FLAGS_RELEASE="$(LDFLAGS)" \
         -DCMAKE_BUILD_TYPE=RelWithDebInfo \
-	-DCMAKE_SKIP_INSTALL_RPATH=TRUE \
-	-DOMPL_ODESOLVER=ON \
+	    -DCMAKE_SKIP_INSTALL_RPATH=TRUE \
+	    -DOMPL_ODESOLVER=ON \
         -DOMPL_REGISTRATION=OFF \
-	-DOMPL_BUILD_PYBINDINGS=ON \
-	-DOMPL_BUILD_PYTESTS=OFF
+	    -DOMPL_BUILD_PYBINDINGS=ON \
+	    -DOMPL_BUILD_PYTESTS=OFF \
+        -DBOOST_MATH_NO_LONG_DOUBLE_MATH_FUNCTIONS
 
 %:
 	dh $@ --builddirectory=build --buildsystem=cmake --parallel
@@ -55,18 +56,18 @@ endif
 
 	find py-bindings/ -name *.pypp.*  | xargs -n1 rm -rf
 	find py-bindings/ -name *.pyc  | xargs -n1 rm -rf
-	find py-bindings/ -name *.so  | xargs -n1 rm -rf 
+	find py-bindings/ -name *.so  | xargs -n1 rm -rf
 	dh_clean
 
 
 override_dh_auto_configure:
-	mkdir -p build 
-	dh_auto_configure --builddirectory=build -- $(CMAKE_FLAGS) $(CMAKE_ARCH_FLAGS) 
+	mkdir -p build
+	dh_auto_configure --builddirectory=build -- $(CMAKE_FLAGS) $(CMAKE_ARCH_FLAGS)
 
 override_dh_auto_build:
 # Uncomment this part to prepare the python bindings
 #	cd build && $(MAKE) update_bindings
-	cd build && $(MAKE) 
+	cd build && $(MAKE)
 
 override_dh_auto_install:
 	dh_auto_install --builddirectory=build
