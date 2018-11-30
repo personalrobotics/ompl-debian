@@ -16,7 +16,7 @@ Build-Depends: debhelper (>= 9),
                libode-dev,
 	           pkg-config,
                libflann-dev (>= 1.8.3),
-               libeigen-dev
+               libeigen3-dev
 Standards-Version: 3.9.8
 Vcs-Browser: https://anonscm.debian.org/cgit/debian-science/packages/ompl.git
 Vcs-Git: https://anonscm.debian.org/git/debian-science/packages/ompl.git
@@ -30,7 +30,7 @@ Depends: libompl12 (= ${binary:Version}),
          pkg-config,
          ${misc:Depends},
          libboost-dev,
-         libeigen-dev
+         libeigen3-dev
 Suggests: libode-dev
 Conflicts: libompl-dev
 Description: Open Motion Planning Library (OMPL) development files
